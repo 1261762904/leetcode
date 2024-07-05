@@ -38,6 +38,7 @@ public class 移动零 {
 
     /**
      * 保证相对顺序
+     * 遍历nums，移动right，如果right值不等于0，就和left值替换并且left和right都移动，否则只移动right
      * --
      * 定义左右指针 左指针0，右指针为循环的index
      * 遍历nums
