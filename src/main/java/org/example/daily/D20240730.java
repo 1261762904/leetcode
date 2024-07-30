@@ -27,7 +27,8 @@ public class D20240730 {
     }
 
     /**
-     * 分治
+     * 直接操作会溢出
+     * 采用分治思想
      * x * x^2 * x^4 * x^ 8
      * x^5 = x * x^4 5的二进制：0101
      * x^10 = x^2 * x^ 8  10二进制：1010
@@ -38,6 +39,7 @@ public class D20240730 {
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < variables.length; i++) {
             int[] variable = variables[i];
+//            if(Math.pow(Math.pow(variable[0],variable[1])%10,variable[2])%variable[3]==target){
             if(pow(pow(variable[0],variable[1],10),variable[2],variable[3])==target){
                 result.add(i);
             }
