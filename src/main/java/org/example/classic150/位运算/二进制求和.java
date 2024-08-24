@@ -7,7 +7,7 @@ package org.example.classic150.位运算;
  * @since 2024/8/22
  */
 public class 二进制求和 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println(new 二进制求和().addBinary("11","1"));
     }
     public String addBinary(String a, String b) {
@@ -17,12 +17,9 @@ public class 二进制求和 {
         StringBuilder sb = new StringBuilder();
         int carry=0;
         for (int i = 0; i < len; i++) {
-            carry+=i>aLen-1?0:a.charAt(aLen-1-i);
-            carry+=i>bLen-1?0:b.charAt(bLen-1-i);
+            carry+=i>aLen-1?0:a.charAt(aLen-1-i)-'0';
+            carry+=i>bLen-1?0:b.charAt(bLen-1-i)-'0';
             sb.append((char) (carry%2+'0'));
-            if(carry%2==0){
-                carry++;
-            }
             carry = carry/2;
         }
         if(carry>0){
