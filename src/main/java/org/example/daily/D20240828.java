@@ -40,4 +40,26 @@ public class D20240828 {
         }
         return d[n];
     }
+
+    public int minimumSubstringsInPartitionNew(String s) {
+        int n = s.length();
+        int[] d = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            d[i] = d[i-1]+1;
+            int[] ints = new int[26];
+            int maxCnt = 0;
+            int size=0;
+            for (int j = i; j >= 1; j--) {
+                int index = s.charAt(j - 1) - 'a';
+                if(++ints[index]==1){
+                    size++;
+                }
+                maxCnt = Math.max(maxCnt, ints[index]);
+                if (maxCnt * size == (i - j + 1)) {
+                    d[i] = Math.min(d[i], d[j - 1] + 1);
+                }
+            }
+        }
+        return d[n];
+    }
 }
